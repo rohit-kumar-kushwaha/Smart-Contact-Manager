@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+
+			<div class="card">
+				<div class="card-body">
+
+					<div class="container text-center">
+
+						<img th:if="${user.imgUrl != null}" src=""
+							style="height: 200px; width: 200px;" class="my-profile-picture"
+							th:src="@{'/img/user/'+${user.imgUrl}}" alt="profile photo" /> 
+							
+						<img th:unless="${user.imgUrl != null}" src=""
+							style="height: 200px; width: 200px;" class="my-profile-picture"
+							th:src="@{'/img/user/null.png'}" alt="profile photo" />
+
+					</div>
+
+					<h1 class="text-center mt-2" th:text="${user.name}"></h1>
+
+					<table class="table text-center">
+						<!-- <thead>
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col">SCM2022<span th:text="${contact.cid}"></span></th>
+								
+							</tr>
+						</thead> -->
+						<tbody>
+							<tr>
+								<th scope="row">#USER_ID</th>
+								<td>SCMUSER<span th:text="${user.id}"></span></td>
+
+							</tr>
+
+							<tr>
+								<th scope="row">Email</th>
+								<td><span th:text="${user.email}"></span></td>
+
+							</tr>
+
+							<tr>
+								<th scope="row">Role</th>
+								<td><span th:text="${user.role}"></span></td>
+
+							</tr>
+
+							<tr>
+								<th scope="row">Account Active</th>
+								<td><span th:text="${user.enabled}"></span></td>
+
+							</tr>
+
+							<tr>
+								<th scope="row">About You</th>
+								<td><span th:text="${user.about}"></span></td>
+
+							</tr>
+						</tbody>
+					</table>
+					<div class="container mt-3 text-center">
+
+						<form th:action="@{'/user/update-profile/'+${user.id}}" method="post" class="mt-1">
+									<button class="btn btn-primary btn-sm btn-block">Update</button>
+								</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$('.item').removeClass('active');
+			$('#profile').addClass('active');
+		</script>
+	</section>
+</body>
+</html>

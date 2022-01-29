@@ -12,15 +12,38 @@
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12" style="height: 200px;">
+                    <div id="login-box" class="col-md-12" style="height: 220px;">
                     
                     	<!-- email form -->
                     	
-                    	<div class="alert alert-success mt-2" role="alert">
-                    		we have send OTP to your email...
-                    	</div>
+                    	<div th:if="${session.otpMessage}" class="container">
+							
+							<div class="alert alert-success mt-1 text-center"  role="alert">
+							 	<span th:text="${session.otpMessage}"></span>
+							</div>
+							
+							<th:block th:text="${#session.removeAttribute('otpMessage')}"> </th:block>
+							
+						</div>
                     	
-                    	<form action="" th:action="@{/send-otp}" method="post">
+                    	
+                    	<!-- <div class="alert alert-success mt-2" role="alert">
+                    		we have send OTP to your email...
+                    	</div> -->
+                    	
+                    	<!-- for error msg -->
+		
+						<div th:if="${session.message}" class="container">
+							
+							<div class="alert alert-danger mt-1 text-center"  role="alert">
+							 	<span th:text="${session.message}"></span>
+							</div>
+							
+							<th:block th:text="${#session.removeAttribute('message')}"> </th:block>
+							
+						</div>
+                    	
+                    	<form action="" th:action="@{/verify-otp}" method="post">
                     	
                     		<div class="form-group">
                     		

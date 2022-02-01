@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 	
 <link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/chat.css}" />
 
 <title th:text="${title}">Base html</title>
 
@@ -68,6 +69,7 @@
 		<a id="home" href="#" th:href="@{/user/index}" class="item"><i class="fas fa-home"></i> Home</a>
 		<a id="view-contact" href="#" th:href="@{/user/show-contacts/0}" class="item"><i class="fas fa-id-card-alt"></i> View Contacts</a>
 		<a id="add-contact" href="#" th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i> Add Contact</a>
+		<a id="chat" href="#" th:href="@{/user/chat}" class="item"><i class="fas fa-users"></i> Chat</a>
 		<a id="profile" href="#" th:href="@{/user/profile}" class="item"><i class="fas fa-user-circle"></i> Your Profile</a>
 		<a id="setting" href="#" th:href="@{/user/settings}" class="item"><i class="fas fa-cogs"></i> Setting</a>
 		<a id="logout" href="#" th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i> Logout</a>

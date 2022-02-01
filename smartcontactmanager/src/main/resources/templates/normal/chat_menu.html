@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is Chat page</title>
+</head>
+<body>
+	<section>
+		<div class="wrapper">
+			<section class="users">
+				<header>
+					<div class="content" style="margin: inherit;">
+
+						<img th:src="@{'/img/user/'+${user.imgUrl}}" alt="">
+						<div class="details">
+							<spam th:text="${user.name}"></spam>
+							<p>Active</p>
+						</div>
+					</div>
+					<a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>"
+						class="logout">Logout</a>
+				</header>
+				<div class="search">
+					<span class="text">Select an user to start chat</span> <input
+						type="text" placeholder="Enter name to search...">
+					<button>
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+				<div class="users-list"></div>
+			</section>
+		</div>
+		<script>
+			$('.item').removeClass('active');
+			$('#chat').addClass('active');
+		</script>
+	</section>
+</body>
+</html>

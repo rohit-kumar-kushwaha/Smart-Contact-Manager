@@ -371,5 +371,12 @@ public class UserController {
 			
 			return "redirect:/user/index"; 
 		}
+		
+		// open chat dash-board
+		@RequestMapping("/chat")
+		public String chat() {
+			
+			return "normal/chat_menu";
+		}
 
 }
